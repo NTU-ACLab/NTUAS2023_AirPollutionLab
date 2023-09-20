@@ -3,13 +3,16 @@
 ```bash
 sudo nano /etc/apt/sources.list
 ```
-預設鏡像站為`http://raspbian.raspberrypi.org/raspbian/`，修改時把該行給註解掉，並複製該行把網址部分改成`http://free.nchc.org.tw/raspbian/raspbian/`即可，內容應該會變成這樣：
+預設鏡像站為`http://deb.debian.org/debian`，修改時把該行給註解掉，並複製該行把網址部分改成`http://free.nchc.org.tw/debian`即可，內容應該會變成這樣：
 
 ```bash
-deb http://free.nchc.org.tw/raspbian/raspbian/ buster main contrib non-free rpi
-#deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
-# Uncomment line below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+deb http://free.nchc.org.tw/debian bullseye main contrib non-free
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+deb http://free.nchc.org.tw/debian bullseye-updates main contrib non-free
+# Uncomment deb-src lines below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://deb.debian.org/debian bullseye main contrib non-free
+#deb-src http://security.debian.org/debian-security bullseye-security main contrib non-free
+#deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free
 ```
 順帶一提，buster 為本次安裝系統的發行版名稱，因此更改時只改網址的部分就好，若使用的發行版本不是 buster 更新時便會發生錯誤。修改完後便可儲存離開，接著執行下列指令：
 
